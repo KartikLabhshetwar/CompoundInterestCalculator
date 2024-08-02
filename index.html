@@ -1,0 +1,69 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="principal" placeholder="Enter your principal amount.">
+    <br><br>
+    <input type="text" id="rate" placeholder="Enter your interest rate.">
+    <br><br>
+    <input type="text" id="time" placeholder="Enter your duration.">
+    <br><br>
+    <button id="calculate" onclick="simpleInterest()">Calculate</button>
+    <br><br>
+    <div id="compoundinterest"></div>
+
+    <script>
+
+        async function simpleInterest(){
+            const principal = document.getElementById("principal").value
+            const rate = document.getElementById("rate").value
+            const time = document.getElementById("time").value
+            const element = document.getElementById("compoundinterest")
+
+            const answer = await fetch("https://compoundinterest-server.onrender.com/compoundinterest?principal="+principal+"&rate="+rate+"&time="+time)
+            const finalAns = await answer.json()
+            element.innerHTML = "Final amount:" + finalAns.amount + "<br/>"+"Interest on Amount: "+ finalAns.compoundInterest;
+        }
+
+    </script>
+    
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compound Interest Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Compound Interest Calculator</h1>
+        <form>
+            <div class="form-group">
+                <label for="principal">Principal Amount:</label>
+                <input type="number" id="principal" placeholder="Enter your principal amount">
+            </div>
+            <div class="form-group">
+                <label for="rate">Interest Rate:</label>
+                <input type="number" id="rate" placeholder="Enter your interest rate">
+            </div>
+            <div class="form-group">
+                <label for="time">Duration:</label>
+                <input type="number" id="time" placeholder="Enter your duration">
+            </div>
+            <button id="calculate" onclick="compoundInterest(event)">Calculate</button>
+        </form>
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
